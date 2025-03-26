@@ -1,11 +1,14 @@
-import Layout from "@/Components/Layout";
+
+import Layout from "@/Components/Layout/Layout";
+import HeroSection from "@/Components/Sections/HeroSection";
 import React from "react";
 
 function Products() {
     return (
         <>
             <Layout>
-                <h1>Products</h1>
+            <HeroSection />
+            <h1>Products</h1>
             </Layout>
         </>
     );

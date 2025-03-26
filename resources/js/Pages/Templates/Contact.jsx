@@ -1,12 +1,15 @@
-import Layout from "@/Components/Layout";
+
+import Layout from "@/Components/Layout/Layout";
+import HeroSection from "@/Components/Sections/HeroSection";
 import React from "react";
 
 function Contact() {
     return (
         <>
-        <Layout>
-            <h1>Contact</h1>
-        </Layout>
+            <Layout>
+                <HeroSection />
+                <h1>Contact</h1>
+            </Layout>
         </>
     );
 }

@@ -1,11 +1,15 @@
-import Layout from "@/Components/Layout";
+
+
+import Layout from "@/Components/Layout/Layout";
+import HeroSection from "@/Components/Sections/HeroSection";
 import React from "react";
 
 function About() {
     return (
        <>
         <Layout>
-            <h1>About</h1>
+            <HeroSection />
+            <h1>About US</h1>
         </Layout>
        </>
     );
