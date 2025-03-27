@@ -1,80 +1,140 @@
-import { Link } from '@inertiajs/react'
-import React from 'react'
-import LogoWhite from '../../../../public/Frontend/Images/logowhite.png'
+import { Link } from '@inertiajs/react';
+import React from 'react';
 
-function Footer() {
+
+export default function Footer() {
   return (
-    <footer className="bg-[#222443] text-white pt-16 pb-8">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div className="fade-right">
-                    <div className="text-2xl font-bold mb-6">
-                       <img src={LogoWhite} alt="" />
-                    </div>
-                    <p className="text-gray-400 mb-6">World's Leading Industry Corporation providing one-stop manufacturing solutions with uncompromising quality.</p>
-                    <div className="flex space-x-4">
-                        <a href="#" className="text-gray-400 hover:text-white"><i className="fab fa-facebook-f"></i></a>
-                        <a href="#" className="text-gray-400 hover:text-white"><i className="fab fa-twitter"></i></a>
-                        <a href="#" className="text-gray-400 hover:text-white"><i className="fab fa-youtube"></i></a>
-                    </div>
-                </div>
+    <footer className="bg-secondary-900 text-white pt-20 pb-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          {/* Company Info */}
+          <div>
+            <Link href="/" className="flex-shrink-0 flex items-center mb-6">
+              <span className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-300">
+                CQS
+              </span>
+            </Link>
+            <p className="text-secondary-400 mb-6">
+              World's Leading Industry Corporation specializing in advanced die casting solutions with
+              a commitment to creativity, quality, and sustainability.
+            </p>
 
-                <div className="fade-right">
-                    <h3 className="text-lg font-bold mb-6">Production</h3>
-                    <ul className="space-y-3">
-                        <li><a href="#" className="text-gray-400 hover:text-white">HPDC</a></li>
-                        <li><a href="#" className="text-gray-400 hover:text-white">CNC</a></li>
-                        <li><a href="#" className="text-gray-400 hover:text-white">GDC</a></li>
-                        <li><a href="#" className="text-gray-400 hover:text-white">Painting</a></li>
-                        <li><a href="#" className="text-gray-400 hover:text-white">Assembly</a></li>
-                    </ul>
-                </div>
-
-                <div className="fade-left">
-                    <h3 className="text-lg font-bold mb-6">Products</h3>
-                    <ul className="space-y-3">
-                        <li><a href="#" className="text-gray-400 hover:text-white">AL. Wheel general</a></li>
-                        <li><a href="#" className="text-gray-400 hover:text-white">Light-weight Products</a></li>
-                        <li><a href="#" className="text-gray-400 hover:text-white">Green Energy Products</a></li>
-                        <li><a href="#" className="text-gray-400 hover:text-white">Agricultural Products</a></li>
-                    </ul>
-                </div>
-
-                <div className="fade-left">
-                    <h3 className="text-lg font-bold mb-6">Contact</h3>
-                    <ul className="space-y-3 text-gray-400">
-                        <li className="flex items-start">
-                            <i className="fas fa-map-marker-alt mt-1 mr-3"></i>
-                            <span>No 9, Ho Nai Industrial Zone, Ho Nai 3 Hamlet, Trang Bom District, Dong Nai Province, Vietnam</span>
-                        </li>
-                        <li className="flex items-center">
-                            <i className="fas fa-phone-alt mr-3"></i>
-                            <span>+84 251 3981689 / 983354</span>
-                        </li>
-                        <li className="flex items-center">
-                            <i className="fas fa-fax mr-3"></i>
-                            <span>Fax: +84 251 - 3982894</span>
-                        </li>
-                        <li className="flex items-center">
-                            <i className="fas fa-envelope mr-3"></i>
-                            <span>daisy@cqs-tech.com.tw</span>
-                        </li>
-                    </ul>
-                </div>
+            {/* Social Media Links */}
+            <div className="flex space-x-4">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.platform}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-secondary-800 flex items-center justify-center
+                           hover:bg-primary-700 transition"
+                >
+                  <i className={`fab fa-${link.icon} text-white`}></i>
+                </a>
+              ))}
             </div>
-      <div className="border-t border-gray-600 pt-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-300 text-sm mb-4 md:mb-0">© {new Date().getFullYear()} CQS. All rights reserved.</p>
-          <div className="flex space-x-6">
-            <Link to="/privacy" className="text-gray-300 hover:text-white text-sm">Privacy Policy</Link>
-            <Link to="/terms" className="text-gray-300 hover:text-white text-sm">Terms of Service</Link>
-            <Link to="/sitemap" className="text-gray-300 hover:text-white text-sm">Sitemap</Link>
+          </div>
+
+          {/* Products Links */}
+          <div>
+            <h4 className="text-xl font-semibold mb-6">Products</h4>
+            <ul className="space-y-4">
+              {productLinks.map((link) => (
+                <li key={link.text}>
+                  <Link
+                    href={link.url}
+                    className="text-secondary-400 hover:text-white transition"
+                  >
+                    {link.text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Technologies Links */}
+          <div>
+            <h4 className="text-xl font-semibold mb-6">Technologies</h4>
+            <ul className="space-y-4">
+              {technologyLinks.map((link) => (
+                <li key={link.text}>
+                  <Link
+                    href={link.url}
+                    className="text-secondary-400 hover:text-white transition"
+                  >
+                    {link.text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Information */}
+          <div>
+            <h4 className="text-xl font-semibold mb-6">Contact</h4>
+            <ul className="space-y-4">
+              {contactItems.map((item) => (
+                <li key={item.text} className="flex items-start">
+                  <i className={`fas fa-${item.icon} text-primary-500 mt-1.5 mr-3`}></i>
+                  <span className="text-secondary-400">{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Copyright and Legal Links */}
+        <div className="border-t border-secondary-800 mt-16 pt-10 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-secondary-400 mb-4 md:mb-0">© {new Date().getFullYear()} CQS Corporation. All rights reserved.</p>
+          <div className="flex flex-wrap justify-center gap-6">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.text}
+                href={link.url}
+                className="text-secondary-400 hover:text-white transition"
+              >
+                {link.text}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
-    </div>
-  </footer>
-  )
+    </footer>
+  );
 }
 
-export default Footer
+// Data for footer links and content
+const socialLinks = [
+  { platform: 'facebook', icon: 'facebook-f', url: '#' },
+  { platform: 'twitter', icon: 'twitter', url: '#' },
+  { platform: 'linkedin', icon: 'linkedin-in', url: '#' },
+  { platform: 'youtube', icon: 'youtube', url: '#' },
+];
+
+const productLinks = [
+  { text: 'AL. Wheel', url: '/products/al-wheel' },
+  { text: 'Light-Weight Products', url: '/products/lightweight' },
+  { text: 'Green Energy Products', url: '/products/green-energy' },
+  { text: 'Agricultural Products', url: '/products/agricultural' },
+];
+
+const technologyLinks = [
+  { text: 'HPDC', url: '/technologies/hpdc' },
+  { text: 'CNC', url: '/technologies/cnc' },
+  { text: 'GDC', url: '/technologies/gdc' },
+  { text: 'Painting', url: '/technologies/painting' },
+  { text: 'Assembly', url: '/technologies/assembly' },
+];
+
+const contactItems = [
+  { text: 'Vietnam Headquarters', icon: 'map-marker-alt' },
+  { text: '+84 000 000 000', icon: 'phone' },
+  { text: 'info@cqs.com', icon: 'envelope' },
+];
+
+const legalLinks = [
+  { text: 'Privacy Policy', url: '/privacy-policy' },
+  { text: 'Terms of Service', url: '/terms-of-service' },
+  { text: 'Cookie Policy', url: '/cookie-policy' },
+];
